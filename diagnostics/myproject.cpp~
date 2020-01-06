@@ -1,0 +1,15 @@
+extern "C" {
+#include "clang-c/Index.h"
+}
+#include "llvm/Support/CommandLine.h"
+#include <iostream>
+#include <string>
+
+using namespace llvm;
+
+static cl::opt<std::string> FileName(cl::Positional, cl::desc("Input file"), cl::Required);
+int main(int argc, char**argv){
+  cl::ParseCommandLineOptions(argc, argv, "Diagnostics Example");
+  std::cout << FileName << std::endl;
+  return 0;
+}
